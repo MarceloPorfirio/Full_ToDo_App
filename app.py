@@ -3,9 +3,25 @@ from flet import *
 from datetime import datetime
 import sqlite3
 
+class FormContainer(UserControl):
+    def __init__(self):
+        super().__init__()
+
+    def build(self):
+        return Container(
+            width=280,
+            height=80,
+            bgcolor="bluegrey500",
+            opacity=1,
+            border_radius=40,
+        )
+
 def main(page:Page):
     page.horizontal_alignment = 'center'
     page.vertical_alignment = 'center'
+
+    def CreateToDoTask(e):
+        pass
 
     __main__column_ = Column(
         scroll='hidden',
@@ -20,10 +36,12 @@ def main(page:Page):
                         icons.ADD_CIRCLE_ROUNDED,
                         icon_size=18,
                         icon_color='white',
+                        on_click=lambda e: CreateToDoTask(e),
 
-                    )
-                ]
-            )
+                    ),
+                ],
+            ),
+            Divider(height=8,color='white24')
         ]
     )
 
@@ -51,6 +69,7 @@ def main(page:Page):
                             expand=True,
                             controls=[
                                 __main__column_,
+                                FormContainer()
                             ]
                         )
                     )
