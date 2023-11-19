@@ -14,6 +14,11 @@ class FormContainer(UserControl):
             bgcolor="bluegrey500",
             opacity=1,
             border_radius=40,
+            margin=margin.only(left=-20, right=-20),
+            animate=animation.Animation(400, 'decelerate'),
+            animate_opacity=200,
+            padding=padding.only(top=45, bottom=45),
+            
         )
 
 def main(page:Page):
